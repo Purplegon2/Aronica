@@ -1,0 +1,73 @@
+{
+  "slug": "planet-aron",
+  "title": "Aron",
+  "type": "planet",
+  "tags": ["planet", "world", "aron", "setting"],
+  "updated": "2025-08-30",
+  "infobox": {
+    "template": "infobox-planet",
+    "image": "data/sprites/article-planet-aron/aron.png",
+    "caption": "A global projection of the planet Aron",
+    "fields": {
+      "Equatorial Diameter": "≈ 13,200 km",
+      "Mass": "Similar to Earth",
+      "Orbital Period": "365 days (approx.)",
+      "Moons": "Nyx and minor satellites",
+      "Atmosphere": "N2, O2, CO2, SO2, trace gases",
+      "Age": "4.32 billion years",
+      "Dominant Species": "Homo intelligens",
+      "Average Surface Temperature": "10 °C (approx.)",
+      "Note": "Primary setting for modern civilizations and global powers"
+    }
+  },
+  "infoboxes": [
+    {
+      "header": "Continents and geography",
+      "template": "infobox-planet",
+      "image": "data/sprites/article-planet-aron/tectonic-plateaus.png",
+      "caption": "Tectonic plateaus on Aron"
+    },
+    {
+      "header": "Biological history",
+      "template": "infobox-planet",
+      "image": "data/sprites/article-planet-aron/ecosystem.png",
+      "caption": "Diverse ecosystems of Aron"
+    }
+  ],
+  "body": [
+    {"h2": "Overview"},
+    {"p": "Aron is a terrestrial planet in an unspecified star system, serving as the cradle of Homo intelligens and the stage of modern civilization. With a geological history spanning more than 4.3 billion years, it features dynamic tectonics, diverse climates, and multiple continents. Aron supports a rich biosphere and has hosted the rise and fall of numerous empires and nations, including the United Federal States of Lucithia and the Collected Communist Republic."},
+
+    {"h2": "Geological history"},
+    {"p": "Aron formed around 4.32 billion years ago during the Hadean scene and the Jekei Epoch. Following planetary cooling, oceans stabilized, allowing the development of complex chemistry. The first known life appeared approximately 2.36 billion years ago. A major asteroid impact about 53.23 million BME reshaped western Antara, ending the Placio scene. Aron has undergone multiple geological epochs defined by mass extinctions, continental shifts, and climatic transitions."},
+
+    {"h2": "Biological history"},
+    {"p": "Life on Aron began in its oceans before expanding to land. Around 2.35 million BME, Homo intelligens evolved, closely resembling humans of Earth. Mastery of fire occurred circa 172,000 BME, setting the foundation for advanced societies. Over tens of thousands of years, Homo intelligens spread across the continents, forming distinct cultures and early civilizations."},
+
+    {"h2": "Continents and geography"},
+    {"p": "Aron features multiple major landmasses, including Lucithia, Enequit, Kifahn, Antara, Mancha, Rohkree, and various island chains such as the Encarie Islands. Continents exhibit diverse climates: temperate plains in Lucithia, tropical equatorial belts in Kifahn, steppe regions in Antara, and mountainous interiors across Kolviska and Frenkila. Oceans such as the Rohkree Ocean and Glaria Sea dominate the planet's surface."},
+
+    {"h2": "Moons"},
+    {"p": "Aron is orbited by at least one major moon, Nyx, and several smaller satellites. Nyx has played a crucial role in scientific and cultural development. In 1966 DME, Brian Williams of the UFSL became the first Homo intelligens to set foot on Nyx during the Lucithia 11 mission."},
+
+    {"h2": "Civilizations"},
+    {"p": "Aron's recorded history spans thousands of years. Early states included the Julian Empire (founded in 852 DME) and its successor city-states after the Julian Crash of 1202. The Oytarian Empire rose to dominate Kifahn by the late 14th century before collapsing in the 19th century. Modern nations include the UFSL, Aquita, Rohandile, Antara, Mancharia, Kifahn, and many others."},
+
+    {"h2": "Wars and conflicts"},
+    {"p": "Aron's modern era has been marked by devastating wars. The Great Kifahn War (1874), the Enequit Wars (1910-1914, also called the First World War), and the Second World War (1939-1949) reshaped the planet's political map. The Cold War rivalry between the UFSL and CCR defined the second half of the 20th century until the CCR's collapse in 1996."},
+
+    {"h2": "Science and exploration"},
+    {"p": "The Space Age began with the launch of Pioneer-1 by the UFSL in 1955. The CCR followed with its own missions, including the first manned spaceflight in 1959. The exploration of Nyx in 1966 symbolized the technological achievements of Homo intelligens. Continued research in astronomy, medicine, and energy drives planetary innovation."}
+  ],
+  "see_also": [
+    "history-of-aron",
+    "united-federal-states-of-lucithia",
+    "collected-communist-republic",
+    "oytarian-empire",
+    "enequit-wars",
+    "kifahn"
+  ],
+  "references": [
+    "Aron Document (encyclopedia of Aron, planetary timeline, biological history, nations, and conflicts)."
+  ]
+}

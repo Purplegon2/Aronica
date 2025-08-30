@@ -1,0 +1,95 @@
+{
+  "slug": "nation-ccr",
+  "title": "Collected Communist Republic",
+  "type": "nation",
+  "tags": ["nation", "superpower", "communism", "ccr"],
+  "updated": "2025-08-30",
+  "infobox": {
+    "template": "infobox-nation",
+    "image": "data/sprites/article-nation-ccr/flag.png",
+    "caption": "Flag of the CCR",
+    "fields": {
+      "Capital": "Kolstivland",
+      "Population": "1.05 billion (at peak)",
+      "Government": "Councilist Socialist Federation",
+      "Leaders": "Collective Presidium (rotating council)",
+      "Economic System": "Planned Socialism",
+      "GDP": "7.1 trillion USD (peak estimate)",
+      "National Debt": "4.9 trillion USD",
+      "GYB": "1.2 trillion USD",
+      "GDP per capita": "10,020 USD",
+      "Founded": "April 19th, 1811 (Kolviskan Communist Revolution)",
+      "Dissolved": "December 12th, 1996",
+      "Average Lifespan": "74 years",
+      "National Language": "Kifahse",
+      "Size": "30 million km² (federation of Kifahn, Kolviska, Frenkila, and others)",
+      "Population Density": "35 / km²",
+      "Note": "Former communist world superpower, rival of the UFSL during the 20th century"
+    }
+  },
+  "infoboxes": [
+    { 
+      "header": "Geography", 
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-ccr/kolviska-mountains.jpg",
+      "caption": "Kolviska mountain ranges, core of early CCR territory"
+    },
+    { 
+      "header": "Government and politics",
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-ccr/ccr-map.png",
+      "caption": "Territorial extent of the CCR at its height (mid-20th century)"
+    }
+  ],
+  "body": [
+    {"h2": "Overview"},
+    {"p": "The Collected Communist Republic (CCR) was a transcontinental socialist federation on the planet Aron. Formed in 1811 following the Kolviskan Communist Revolution, it expanded to include much of Kifahn and nearby regions. After the Second World War (1939-1949 DME), the CCR emerged alongside the United Federal States of Lucithia (UFSL) as a rival global superpower. Its existence defined much of the 20th century, ending in 1996 with its dissolution."},
+
+    {"h2": "History"},
+    {"h3": "Origins (1811-1813)"},
+    {"p": "The CCR originated in the Kolviskan Communist Revolution of 1811, when uprisings against Oytarian control created a radical socialist state in Kolviska. By 1813, allied states unified into a councilist federation."},
+
+    {"h3": "Expansion and consolidation"},
+    {"p": "During the 19th century, the CCR expanded by absorbing Frenkila, parts of Ruskuzka, and other sympathetic republics. Governance was structured around a collective Presidium, emphasizing unity and ideology at the expense of efficiency."},
+
+    {"h3": "World wars and rise as a superpower"},
+    {"p": "The CCR gained prominence during the global conflicts of the early 20th century. In the Second World War, it fought against Glaria and Antara as part of the Allied coalition. After victory in 1949, the CCR and UFSL became the two dominant world powers."},
+
+    {"h3": "Cold War era"},
+    {"p": "From 1949 to 1996 the CCR was locked in a Cold War with the UFSL. The two nations competed in ideology, technology, and global influence. The CCR launched the first man in space in 1959 and the first spacewalk in 1962, though many missions were rushed and ended in disaster. Its economy struggled to match Lucithia's capitalist growth, leading to shortages and inefficiency."},
+
+    {"h3": "Decline and dissolution"},
+    {"p": "By the late 20th century the CCR faced severe economic stagnation, rising debt, and internal unrest. Member republics pushed for autonomy, and in December 1996 Kifahn's withdrawal triggered the final collapse. The CCR flag was lowered in Kolstivland, ending nearly two centuries of communist federation."},
+
+    {"h2": "Government and politics"},
+    {"p": "The CCR was organized as a Councilist Socialist Federation. Its executive branch was a rotating Presidium rather than a single leader. Member republics followed centrally issued economic plans and common foreign policy. Political opposition was not permitted, and dissent was often suppressed."},
+
+    {"h2": "Geography"},
+    {"p": "At its peak the CCR spanned most of Kifahn, including Kolviska, Frenkila, and large industrial areas. Its estimated territory was around 30 million km², with environments ranging from mountain ranges to industrial plains."},
+
+    {"h2": "Economy"},
+    {"p": "The CCR maintained a centrally planned economy, prioritizing heavy industry, arms, and space exploration. Peak GDP was about 7.1 trillion USD with a GDP per capita around 10,020 USD. Chronic inefficiency, shortages, and technological lag compared to capitalist nations contributed to its decline."},
+
+    {"h2": "Demographics"},
+    {"p": "The CCR population peaked at about 1.05 billion people. Kifahse was the official language, but many ethnic and linguistic groups existed across the federation. The average lifespan was 74 years, lower than rival nations due to healthcare gaps and pollution."},
+
+    {"h2": "Military"},
+    {"p": "The CCR fielded one of the largest militaries in the world, with large armored forces, nuclear weapons, and a vast conscript army. It was heavily militarized and engaged in proxy conflicts across Aron. Despite its size, outdated equipment and logistical problems limited effectiveness."},
+
+    {"h2": "Science and technology"},
+    {"p": "The CCR scored several major achievements during the space race: launching its first satellite in 1956, the first manned spaceflight in 1959, and the first spacewalk in 1962. However, rushed schedules and limited resources caused high failure rates."},
+
+    {"h2": "Legacy"},
+    {"p": "The CCR's collapse in 1996 reshaped the global order. The UFSL became the sole superpower, while Kifahn and other successor states continued communist or socialist traditions on smaller scales. The CCR remains a symbol of both ideological ambition and systemic inefficiency in Aron's history."}
+  ],
+  "see_also": [
+    "home",
+    "nation-ufsl",
+    "oytarian-empire",
+    "enequit-wars",
+    "kifahn"
+  ],
+  "references": [
+    "Aron Document (encyclopedia of Aron, includes CCR origins, wars, space race, and dissolution)."
+  ]
+}

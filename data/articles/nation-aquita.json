@@ -1,0 +1,67 @@
+{
+  "slug": "nation-aquita",
+  "title": "Democratic Republic of Aquita",
+  "type": "nation",
+  "tags": ["nation", "aquita", "enequit", "superpower"],
+  "updated": "2025-08-30",
+  "infobox": {
+    "template": "infobox-nation",
+    "image": "data/sprites/article-nation-aquita/flag.png",
+    "caption": "Flag of Aquita",
+    "fields": {
+      "Capital": "Ashpole City",
+      "Population": "302.7 million",
+      "Government": "Democratic Presidential Constitutional Republic",
+      "Leaders": "Michael Fitzgerald (current president)",
+      "Economic System": "State Capitalism",
+      "GDP": "13.261 trillion USD",
+      "National Debt": "10.077 trillion USD",
+      "GYB": "7.638 trillion USD",
+      "GDP per capita": "44,403 USD",
+      "Founded": "November 30th, 1559 (by Benjamin Fincelton)",
+      "Average Lifespan": "89 years",
+      "National Language": "Aquilese",
+      "Size": "7.48 million km²",
+      "Population Density": "39.9 / km²",
+      "Note": "Major worldwide manufacturer; key player in Enequit and global conflicts"
+    }
+  },
+  "infoboxes": [
+    { 
+      "header": "History", 
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-aquita/early-foundation.jpg",
+      "caption": "Benjamin Fincelton, founder of Aquita (1559)"
+    },
+    { 
+      "header": "Modern Aquita",
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-aquita/ashpole.png",
+      "caption": "Ashpole City, modern capital and industrial center of Aquita"
+    }
+  ],
+  "body": [
+    {"h2": "Overview"},
+    {"p": "The Democratic Republic of Aquita is a major nation located in South Enequit, historically known for its industrial output and political influence. With over 300 million citizens, it is one of the most prominent economies on Aron, functioning under a state capitalist model with strong democratic institutions."},
+
+    {"h2": "History"},
+    {"p": "Aquita was founded on November 30th, 1559 by Benjamin Fincelton, who established it as a monarchy independent from the Oytarian Empire:contentReference[oaicite:1]{index=1}. His descendant Jeremy Fincelton transitioned the nation into a democracy in 1627, marking a turning point in Aquitan governance. In 1732, an eastern territory seceded to form the Lelish Republic (Leland), creating a long-lasting political and cultural rivalry."},
+    {"p": "The 19th century saw further upheaval, most notably the Aquitan Civil War (1839-1842), a brutal conflict between East and West Aquita that ended with the death of General Nathan Herandez:contentReference[oaicite:2]{index=2}."},
+
+    {"h2": "World Wars"},
+    {"p": "Aquita played a central role in the Enequit Wars (World War I), beginning in 1910 when Antara invaded its territory. By 1914, Aquita had fallen to Antaren and Glarian occupation:contentReference[oaicite:3]{index=3}. During World War II, Aquita again became a battlefield, with Ashpole City suffering attacks and occupations before eventual liberation by Allied forces. These experiences solidified Aquita’s modern identity as a resilient but war-torn nation."},
+
+    {"h2": "Modern Era"},
+    {"p": "Following the dissolution of the CCR in 1996, Aquita maintained strong ties with the UFSL and emerged as a central manufacturer in the global economy. However, the nation has also been marked by turmoil: the assassination of President Eric Vick in 1967, a devastating terrorist attack in 1997, and an assassination attempt on current president Michael Fitzgerald in 2025:contentReference[oaicite:4]{index=4}. Despite these challenges, Aquita remains one of Aron's most industrialized nations, its capital Ashpole City serving as a hub of trade, politics, and culture."}
+  ],
+  "see_also": [
+    "nation-ufsl",
+    "nation-ccr",
+    "enequit-wars",
+    "leland",
+    "antara"
+  ],
+  "references": [
+    "Aron Document (encyclopedia of Aron, contains full history and stats of Aquita)."
+  ]
+}

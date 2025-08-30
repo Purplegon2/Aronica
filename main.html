@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aronica</title>
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+  :root { --bg:#0b0d10; --card:#12151a; --text:#e6e8ea; --muted:#9aa3ad; --accent:#6ea8fe; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.55 system-ui,Segoe UI,Roboto,Ubuntu; color:var(--text); background:var(--bg); }
+  header { position:sticky; top:0; background:#0c1117cc; backdrop-filter:saturate(180%) blur(6px); border-bottom:1px solid #1b212a; z-index:10; }
+  .bar { display:flex; gap:.75rem; align-items:center; padding:.6rem 1rem; max-width:1100px; margin:0 auto; }
+  .brand { font-weight:700; letter-spacing:.3px; }
+  .search { flex:1; }
+  .search input { width:100%; padding:.5rem .7rem; background:#0e131a; color:var(--text); border:1px solid #1b212a; border-radius:.5rem; }
+  main { display:grid; grid-template-columns: 270px 1fr; gap:1rem; max-width:1100px; margin:1rem auto; padding:0 1rem; }
+  nav { background:var(--card); border:1px solid #1b212a; border-radius:.75rem; padding:.75rem; height:calc(100dvh - 120px); overflow:auto; }
+  .sec { font-size:.8rem; text-transform:uppercase; color:var(--muted); margin:.75rem 0 .35rem; }
+  .navlink { display:block; padding:.35rem .4rem; border-radius:.4rem; color:var(--text); text-decoration:none; }
+  .navlink:hover { background:#0f1520; }
+  article { background:var(--card); border:1px solid #1b212a; border-radius:.75rem; padding:1rem 1.1rem; min-height:60vh; }
+  .title { margin:.2rem 0 .2rem; }
+  .meta { color:var(--muted); font-size:.9rem; margin-bottom:.8rem; }
+  .tags { display:flex; flex-wrap:wrap; gap:.35rem; margin:.6rem 0 .9rem; }
+  .tag { font-size:.75rem; padding:.1rem .45rem; border:1px solid #2a3443; border-radius:.4rem; color:#b7c3cf; }
+  .content p { margin:.7rem 0; }
+  .content h2 { margin:1.1rem 0 .4rem; border-bottom:1px solid #1b212a; padding-bottom:.2rem; }
+  .content h3 { margin:1rem 0 .35rem; }
+
+  .content ul { margin:.5rem 0 .7rem 1.2rem; }
+
+  .infobox { background:#0f1520; border:1px solid #223047; border-radius:.5rem; }
+  .infobox header { padding:.5rem .7rem; border-bottom:1px solid #223047; background:#0d1a2b; border-top-left-radius:.5rem; border-top-right-radius:.5rem; }
+  .infobox dl { display:grid; grid-template-columns: 1fr 1fr; gap:.25rem .6rem; padding:.6rem .7rem; }
+  .infobox dt { color:#9fb5d3; font-weight:600; }
+  .infobox dd { margin:0; }
+  .infobox img { display:block; max-width:100%; height:auto; }
+
+  .infobox.right { float:right; width:min(320px, 40%); margin:.2rem 0 .8rem .8rem; }
+  .infobox.left  { float:left;  width:min(320px, 40%); margin:.2rem .8rem .8rem 0; }
+  .infobox.inline { margin:.8rem 0; }
+
+  .seealso, .backlinks { margin-top:1rem; padding-top:.6rem; border-top:1px dashed #1c2430; }
+  .link { color:var(--accent); text-decoration:none; }
+  .link:hover { text-decoration:underline; }
+
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+    .infobox.right, .infobox.left { float:none; width:100%; margin:.5rem 0; }
+    nav { height:auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">Aronica</div>
+    <div class="search">
+      <input id="search" type="search" placeholder="Search title / alias / tag..." aria-label="Search" />
+    </div>
+    <a class="link" href="#/home">Home</a>
+  </div>
+</header>
+
+<main>
+  <nav>
+    <div class="sec">Browse</div>
+    <div id="nav-list"></div>
+    <div class="sec">Search Results</div>
+    <div id="search-results"></div>
+  </nav>
+
+  <article>
+    <h1 class="title" id="title"></h1>
+    <div class="meta" id="meta"></div>
+    <div class="tags" id="tags"></div>
+
+    <div id="infobox-left"></div>
+    <div id="infobox-right"></div>
+
+    <div class="content" id="content"></div>
+    <div class="seealso" id="seealso"></div>
+    <div class="backlinks" id="backlinks"></div>
+  </article>
+</main>
+
+<script>
+const DB = {
+  index: null,
+  articles: new Map(),
+  templates: new Map(),
+  currentArticle: null
+};
+
+async function fetchJSON(path) {
+  const res = await fetch(path, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Fetch failed: ${path}`);
+  return res.json();
+}
+
+(async function init() {
+  DB.index = await fetchJSON("data/index.json");
+  buildNav(DB.index.articles);
+  window.addEventListener("hashchange", route);
+  document.getElementById("search").addEventListener("input", onSearch);
+  try {
+    const tnames = ["infobox-creature","infobox-nation"];
+    for (const name of tnames) {
+      const t = await fetchJSON(`data/templates/${name}.json`);
+      DB.templates.set(name, t);
+    }
+  } catch(e) {}
+  if (!location.hash) location.hash = "#/home";
+  route();
+})().catch(err => showError(err));
+
+function route() {
+  const slug = (location.hash.replace(/^#\//, "") || "home").trim();
+  renderArticle(slug).catch(err => showError(err, slug));
+}
+
+function buildNav(items) {
+  const box = document.getElementById("nav-list");
+  box.innerHTML = "";
+  const byType = {};
+  for (const a of items) {
+    (byType[a.type] ||= []).push(a);
+  }
+  for (const [type, arr] of Object.entries(byType)) {
+    const h = document.createElement("div");
+    h.className = "sec";
+    h.textContent = type;
+    box.appendChild(h);
+    for (const a of arr.sort((x,y)=>x.title.localeCompare(y.title))) {
+      const link = document.createElement("a");
+      link.className = "navlink";
+      link.href = "#/" + a.slug;
+      link.textContent = a.title;
+      box.appendChild(link);
+    }
+  }
+}
+
+async function loadArticle(slug) {
+  if (DB.articles.has(slug)) return DB.articles.get(slug);
+  const art = await fetchJSON(`data/articles/${slug}.json`);
+  DB.articles.set(slug, art);
+  return art;
+}
+
+function wikilinksToHTML(text) {
+  return text.replace(/\[\[(.+?)\]\]/g, (_, inside) => {
+    let label = inside, slug = null;
+    if (inside.startsWith("slug:")) {
+      const parts = inside.slice(5).split("|");
+      slug = parts[0].trim();
+      label = (parts[1] || parts[0]).trim();
+    } else {
+      const m = DB.index.articles.find(a => a.title.toLowerCase() === inside.toLowerCase() || (a.aliases||[]).map(s=>s.toLowerCase()).includes(inside.toLowerCase()));
+      slug = m ? m.slug : null;
+    }
+    if (!slug) return label;
+    return `<a class="link" href="#/${slug}">${label}</a>`;
+  });
+}
+
+function renderBlock(container, block) {
+  if (block.h2) {
+    const el = document.createElement("h2");
+    el.textContent = block.h2;
+    container.appendChild(el);
+  } else if (block.h3) {
+    const el = document.createElement("h3");
+    el.textContent = block.h3;
+    container.appendChild(el);
+  } else if (block.p) {
+    const el = document.createElement("p");
+    el.innerHTML = wikilinksToHTML(block.p);
+    container.appendChild(el);
+  } else if (block.ul) {
+    const ul = document.createElement("ul");
+    for (const li of block.ul) {
+      const liEl = document.createElement("li");
+      liEl.innerHTML = wikilinksToHTML(li);
+      ul.appendChild(liEl);
+    }
+    container.appendChild(ul);
+  } else if (block.hr) {
+    const hr = document.createElement("hr");
+    container.appendChild(hr);
+  } else if (block.infobox) {
+    const info = Object.assign({ location: "inline" }, block.infobox);
+    const el = buildInfoboxEl(
+      info,
+      { title: block.infobox.title || (DB.currentArticle?.title || "") }
+    );
+    el.classList.add("inline");
+    container.appendChild(el);
+  }
+}
+
+
+function buildInfoboxEl(info, art) {
+  const tmpl = info.template ? DB.templates.get(info.template) : null;
+  const ordered = tmpl?.order || Object.keys(info.fields || {});
+  const labelMap = tmpl?.labelMap || {};
+
+  const wrap = document.createElement("aside");
+  const loc = info.location || "right";
+  wrap.className = "infobox " + loc;
+  if (info.width) wrap.style.width = info.width;
+  if (Number.isFinite(info.position)) wrap.style.marginTop = info.position + "px";
+
+  const head = document.createElement("header");
+  head.textContent = info.title || art.title || "";
+  wrap.appendChild(head);
+
+  if (info.image) {
+    const img = document.createElement("img");
+    const url = new URL(info.image, location.href).href;
+    img.src = url;
+    img.addEventListener("error", () => console.error("Infobox image failed to load:", url));
+    wrap.appendChild(img);
+
+    if (info.caption) {
+      const cap = document.createElement("div");
+      cap.style.fontSize = "0.8rem";
+      cap.style.textAlign = "center";
+      cap.style.color = "#9aa3ad";
+      cap.textContent = info.caption;
+      wrap.appendChild(cap);
+    }
+  }
+
+  const dl = document.createElement("dl");
+  for (const key of ordered) {
+    if (!(key in (info.fields || {}))) continue;
+    const dt = document.createElement("dt");
+    dt.textContent = labelMap[key] || key;
+    const dd = document.createElement("dd");
+    dd.innerHTML = wikilinksToHTML(String(info.fields[key]));
+    dl.appendChild(dt);
+    dl.appendChild(dd);
+  }
+  wrap.appendChild(dl);
+  return wrap;
+}
+
+function renderSideboxes(art) {
+  const content = document.getElementById("content");
+  document.getElementById("infobox-left").innerHTML = "";
+  document.getElementById("infobox-right").innerHTML = "";
+
+  const placeInfobox = (el, info) => {
+    const hasLoc = !!info.location;
+    const hasPos = Number.isFinite(info.position);
+    if (!hasLoc && !hasPos && info.header) {
+      const headers = content.querySelectorAll("h2, h3");
+      for (const h of headers) {
+        if (h.textContent.trim().toLowerCase() === String(info.header).trim().toLowerCase()) {
+          h.insertAdjacentElement("afterend", el);
+          return;
+        }
+      }
+    }
+    if (hasPos) {
+      content.insertBefore(el, content.firstChild);
+      return;
+    }
+    const loc = info.location || "right";
+    if (loc === "inline") content.appendChild(el);
+    else content.insertBefore(el, content.firstChild);
+  };
+
+  if (art.infobox) {
+    const info = Object.assign({}, art.infobox);
+    const el = buildInfoboxEl(info, art);
+    placeInfobox(el, info);
+  }
+  if (Array.isArray(art.infoboxes)) {
+    for (const info of art.infoboxes) {
+      const el = buildInfoboxEl(info, art);
+      placeInfobox(el, info);
+    }
+  }
+}
+
+async function renderArticle(slug) {
+  const art = await loadArticle(slug);
+  DB.currentArticle = art;
+
+  document.getElementById("title").textContent = art.title || slug;
+  document.getElementById("meta").textContent = art.updated ? `Last updated: ${art.updated}` : "";
+
+  const tagsBox = document.getElementById("tags");
+  tagsBox.innerHTML = "";
+  (art.tags||[]).forEach(t => {
+    const el = document.createElement("span");
+    el.className = "tag"; el.textContent = t; tagsBox.appendChild(el);
+  });
+
+  const content = document.getElementById("content");
+  content.innerHTML = "";
+  (art.body||[]).forEach(block => renderBlock(content, block));
+
+  renderSideboxes(art);
+
+  const sa = document.getElementById("seealso");
+  sa.innerHTML = "";
+  if (art.see_also?.length) {
+    const h = document.createElement("div"); h.innerHTML = "<strong>See also</strong>";
+    sa.appendChild(h);
+    const ul = document.createElement("ul");
+    for (const s of art.see_also) {
+      const a = DB.index.articles.find(x => x.slug === s);
+      const li = document.createElement("li");
+      if (a) li.innerHTML = `<a class="link" href="#/${a.slug}">${a.title}</a>`;
+      else li.textContent = s;
+      ul.appendChild(li);
+    }
+    sa.appendChild(ul);
+  }
+
+  await ensureBacklinkScan();
+  const bl = backlinksFor(slug);
+  const blBox = document.getElementById("backlinks");
+  blBox.innerHTML = "";
+  if (bl.length) {
+    const h = document.createElement("div"); h.innerHTML = "<strong>Links here</strong>";
+    blBox.appendChild(h);
+    const ul = document.createElement("ul");
+    for (const s of bl) {
+      const a = DB.index.articles.find(x => x.slug === s);
+      if (!a) continue;
+      const li = document.createElement("li");
+      li.innerHTML = `<a class="link" href="#/${a.slug}">${a.title}</a>`;
+      ul.appendChild(li);
+    }
+    blBox.appendChild(ul);
+  }
+}
+
+let _backlinkIndex = null;
+async function ensureBacklinkScan() {
+  if (_backlinkIndex) return;
+  _backlinkIndex = new Map();
+  for (const a of DB.index.articles) {
+    try {
+      const art = await loadArticle(a.slug);
+      const texts = [];
+      (art.body||[]).forEach(b => {
+        if (typeof b.p === "string") texts.push(b.p);
+        if (Array.isArray(b.ul)) texts.push(...b.ul);
+        if (b.h2) texts.push(String(b.h2));
+        if (b.infobox && b.infobox.caption) texts.push(String(b.infobox.caption));
+      });
+      texts.push(...(art.see_also||[]));
+      const re = /\[\[(.+?)\]\]/g;
+      for (const t of texts) {
+        if (typeof t !== "string") continue;
+        let m;
+        while ((m = re.exec(t))) {
+          const inside = m[1];
+          let targetSlug = null;
+          if (inside.startsWith("slug:")) {
+            targetSlug = inside.slice(5).split("|")[0].trim();
+          } else {
+            const hit = DB.index.articles.find(x =>
+              x.title.toLowerCase() === inside.toLowerCase() ||
+              (x.aliases||[]).map(s=>s.toLowerCase()).includes(inside.toLowerCase())
+            );
+            targetSlug = hit?.slug || null;
+          }
+          if (targetSlug) {
+            if (!_backlinkIndex.has(targetSlug)) _backlinkIndex.set(targetSlug, new Set());
+            _backlinkIndex.get(targetSlug).add(art.slug);
+          }
+        }
+      }
+      for (const s of (art.see_also||[])) {
+        if (!_backlinkIndex.has(s)) _backlinkIndex.set(s, new Set());
+        _backlinkIndex.get(s).add(art.slug);
+      }
+    } catch {}
+  }
+}
+function backlinksFor(slug) {
+  return _backlinkIndex?.get(slug) ? Array.from(_backlinkIndex.get(slug)) : [];
+}
+
+function onSearch(e) {
+  const q = e.target.value.trim().toLowerCase();
+  const box = document.getElementById("search-results");
+  box.innerHTML = "";
+  if (!q) return;
+  const hits = DB.index.articles
+    .map(a => {
+      const hay = [
+        a.title.toLowerCase(),
+        ...(a.aliases||[]).map(s => s.toLowerCase()),
+        ...(a.tags||[]).map(s => s.toLowerCase()),
+        a.slug.toLowerCase()
+      ].join(" • ");
+      const score = scoreMatch(hay, q);
+      return { a, score };
+    })
+    .filter(x => x.score > 0)
+    .sort((x,y) => y.score - x.score)
+    .slice(0, 30);
+  for (const {a} of hits) {
+    const link = document.createElement("a");
+    link.className = "navlink";
+    link.href = "#/" + a.slug;
+    link.textContent = a.title + (a.tags?.length ? `  ·  ${a.tags.join(", ")}` : "");
+    box.appendChild(link);
+  }
+}
+function scoreMatch(hay, q) {
+  if (hay.includes(q)) return 100;
+  const tokens = q.split(/\s+/);
+  let s = 0;
+  for (const t of tokens) if (hay.includes(t)) s += 10;
+  return s;
+}
+
+function showError(err, slug) {
+  console.error(err);
+  document.getElementById("title").textContent = "Not found";
+  document.getElementById("meta").textContent = slug ? `Missing article: ${slug}` : "";
+  document.getElementById("content").innerHTML = `<p>Whoopsies! Seems you come across an article that doesn't exist (yet), go to another page or  i'll code in a jumpscare.</p>`;
+  document.getElementById("infobox-left").innerHTML = "";
+  document.getElementById("infobox-right").innerHTML = "";
+  document.getElementById("seealso").innerHTML = "";
+  document.getElementById("backlinks").innerHTML = "";
+}
+</script>
+</body>
+</html>

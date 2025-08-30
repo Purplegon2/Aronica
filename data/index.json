@@ -1,0 +1,39 @@
+{
+  "articles": [
+    {
+      "slug": "home",
+      "title": "Home",
+      "type": "meta",
+      "tags": ["home"],
+      "aliases": []
+    },
+    {
+      "slug": "nation-ufsl",
+      "title": "United Federal States of Lucithia",
+      "type": "meta",
+      "tags": ["nation","lucithia","political"],
+      "aliases": []
+    },
+    {
+      "slug": "nation-ccr",
+      "title": "Collected Communist Republics",
+      "type": "meta",
+      "tags": ["nation","kifahn", "communism","political"],
+      "aliases": []
+    },
+    {
+      "slug": "nation-aquita",
+      "title": "Aquita",
+      "type": "meta",
+      "tags": ["nation","aquita","political"],
+      "aliases": []
+    },
+    {
+      "slug": "planet-aron",
+      "title": "Aron (planet)",
+      "type": "meta",
+      "tags": ["planet","aron"],
+      "aliases": []
+    }
+  ]
+}

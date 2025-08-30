@@ -1,0 +1,193 @@
+{
+  "slug": "nation-ufsl",
+  "title": "United Federal States of Lucithia",
+  "type": "nation",
+  "tags": ["nation", "superpower", "lucithia"],
+  "updated": "2025-08-30",
+  "infobox": {
+    "template": "infobox-nation",
+    "image": "data/sprites/article-nation-ufsl/ufsl-flag.jpg",
+    "caption": "Flag of the UFSL",
+    "fields": {
+      "Capital": "Nova City",
+      "Population": "768.93 million",
+      "Government": "Federal Democratic Councilocracy Republic",
+      "Leaders": "Robert Miller; Jennifer Brown; Steve Sharm",
+      "Economic System": "Capitalism",
+      "GDP": "54.22 trillion USD",
+      "National Debt": "79.35 trillion USD",
+      "GYB": "12.838 trillion USD",
+      "GDP per capita": "70,513.57 USD",
+      "Founded": "May 5th, 1675 (independence)",
+      "Average Lifespan": "77 years",
+      "National Language": "Kifahse",
+      "Size": "24.57 million km²",
+      "Population Density": "31.30 / km²",
+      "Note": "Dominating capitalist world superpower"
+    }
+  },
+  "infoboxes": [
+    { 
+      "header": "Geography and environment", 
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-ufsl/vunisaic-plateau.png",
+      "caption": "Vunisaic Plateaus in the Catarac National Park"
+    },
+    { 
+      "header": "Government and politics",
+      "template": "infobox-nation",
+      "image": "data/sprites/article-nation-ufsl/location.png",
+      "caption": "The United Federal States of Lucithia's location"
+    }
+  ],
+  "body": [
+    {
+      "h2": "Overview"
+    }, 
+    {
+      "p": "The United Federal States of Lucithia (UFSL), commonly referred to as the United States (U.S.) or simply Lucithia, is a country primarily located in the continent of Lucithia, with one state situated in Western Enequit. It is a federal democratic councilocracy republic, consisting of 32 states, 30 of which are contiguous. The nation shares land borders with Ketan and Penequa, the latter of which borders New Penequa. The capital city is Nova City. The UFSL is a global superpower and maintains one of the largest economies on the planet Aron. It is a highly developed country, with a population exceeding 768 million, a GDP of $54.22 trillion USD, and a GDP per capita of more than $70,000 USD. It is known for its capitalist economy, technological innovation, and military strength, as well as its dominant cultural influence across Aron."
+    },
+    {
+      "h2": "Etymology"
+    },
+    {
+      "p": "The name Lucithia derives from a Lucithian root associated with “lands of light,” a term used by early settlers to describe the continent's broad plateaus and long daylight periods. The formal state name, United Federal States of Lucithia, was adopted at independence in 1675 to emphasize a union of semi-autonomous states under a federal councilocratic system. "
+    },
+
+    {
+      "h2": "History"
+    },
+    {
+      "h3": "Pre-colonial and Oytarian rule"
+    },
+    {
+      "p": "Before independence, the territory that would become the UFSL developed as a key colony within the Oytarian Empire during the Empire's apex in the 15th-16th centuries DME. Oytaria's continental holdings expanded across Kifahn and into Enequit, with Lucithia becoming one of its most valuable overseas territories. "
+    },
+    {
+      "h3": "Independence and foundation (1675)"
+    },
+    {
+      "p": "The UFSL declared independence from the Oytarian Empire on May 5, 1675 DME, inaugurating a federal democratic councilocracy republic. The successful revolt accelerated the Empire's long decline as additional colonies followed Lucithia's example in subsequent decades. "
+    },
+    {
+      "h3": "Expansion and early republic"
+    },
+    {
+      "p": "Following independence, Lucithia consolidated control over interior territories and established new states as migration and commerce expanded. Early industrialization accelerated after Sir Kolushev Riokiv's steam-engine breakthrough of 1662, which catalyzed manufacturing, rail, and maritime growth across the federation. "
+    },
+    {
+      "h3": "World wars and superpower era"
+    },
+    {
+      "p": "The First World War on Aron (1910-1914 DME) destabilized Enequit, culminating in the collapse of Aquita's wartime government. In 1939 DME, after Glaria bombed a UFSL harbor, Lucithia entered the Second World War; hostilities ended in 1949 when the UFSL used the final nuclear strike against Antara. In the postwar settlement, the UFSL and the Collected Communist Republics (CCR) emerged as rival superpowers. "
+    },
+    {
+      "h3": "Space age and late 20th century"
+    },
+    {
+      "p": "The UFSL launched Pioneer-1, the first satellite, in 1955 DME, and achieved the first crewed landing on Nyx in 1966 (Lucithia 11, astronaut Brian Williams). These milestones cemented its technological lead even as the UFSL-CCR rivalry defined geopolitics. The CCR ultimately dissolved in 1996, leaving the UFSL the predominant global power. "
+    },
+    {
+      "h3": "Contemporary period"
+    },
+    {
+      "p": "In the 21st century DME, the UFSL has led major infrastructure and diplomatic projects, including the 2021 Querev tunnel initiative with Rohandile. Domestic politics feature a rotating executive council; in 2027 the federal council impeached Robert Miller, who was later acquitted. "
+    },
+
+    {
+      "h2": "Government and politics"
+    },
+    {
+      "p": "The UFSL is a Federal Democratic Councilocracy Republic. Executive authority is vested in a tripartite council currently comprising Robert Miller, Jennifer Brown, and Steve Sharm, each representing distinct political blocs and regions. The legislature is bicameral, with a Federal Council representing state governments and a proportionally elected National Assembly. Constitutional review is exercised by the Supreme Constitutional Court."
+    },
+
+    {
+      "h2": "Administrative divisions"
+    },
+    {
+      "p": "The federation consists of 32 states (30 contiguous on the Lucithian mainland, one in Western Enequit, and one non-contiguous territory), each retaining authority over local law, taxation frameworks, and internal infrastructure subject to federal standards. State borders reflect historical settlement patterns, economic corridors, and ecological regions. "
+    },
+
+    {
+      "h2": "Geography and environment"
+    },
+    {
+      "p": "At 24.57 million km², the UFSL spans multiple biomes—from the high Vunisaic Plateaus and the protected landscapes of Catarac National Park to temperate plains and densely urbanized coastal regions. Extensive river systems connect interior agricultural basins to oceanic ports. The Western Enequit state secures transoceanic links to major trade partners. "
+    },
+
+    {
+      "h2": "Economy"
+    },
+    {
+      "p": "The UFSL hosts the world's largest capitalist economy by gross output. Key sectors include advanced manufacturing, aerospace, information technology, finance, biotechnology, and defense. Headline indicators include a GDP of 54.22 trillion USD, GYB of 12.838 trillion USD, national debt of 79.35 trillion USD, and GDP per capita of 70,513.57 USD. The CIV functions as a principal reserve currency in intercontinental trade. "
+    },
+
+    {
+      "h2": "Demographics"
+    },
+    {
+      "p": "The UFSL population is 768.93 million with an average lifespan of 77 years and a density of 31.3 people per km². The national language is Kifahse, though major urban centers exhibit high linguistic diversity due to internal migration and centuries of global immigration. Urbanization is concentrated along manufacturing coasts and interior river corridors. "
+    },
+
+    {
+      "h2": "Culture"
+    },
+    {
+      "p": "Lucithian cultural industries—film, interactive media, music, and consumer technology—wield substantial influence on Aron. Public life emphasizes civic participation, individual enterprise, and research-driven innovation. National parks, sports, and large-scale cultural festivals serve as key elements of shared identity across state lines. "
+    },
+
+    {
+      "h2": "Military"
+    },
+    {
+      "p": "The UFSL maintains one of Aron's most technologically advanced militaries, with nuclear capabilities demonstrated at the end of the Second World War. Integrated early-warning and missile-defense networks leverage Directed Lidar and Radar Scanning (DLRS). Expeditionary forces and alliances project power across both Lucithia and Enequit. "
+    },
+
+    {
+      "h2": "Science and technology"
+    },
+    {
+      "p": "Spaceflight achievements—Pioneer-1 (1955) and the first crewed Nyx landing (1966)—anchor a continuous national investment in aerospace, materials science, computing, and medical research. The country's research universities and industrial labs operate public-private consortia that commercialize fundamental discoveries at scale. "
+    },
+
+    {
+      "h2": "Infrastructure and transport"
+    },
+    {
+      "p": "National freight and high-speed passenger corridors tie coastal ports to interior manufacturing hubs. Major 21st-century projects include the Querev tunnel (construction initiated 2021), designed to increase capacity and resilience of transcontinental trade with allied states. Urban transit networks and intercity maglev lines link the largest metropolitan areas. "
+    },
+
+    {
+      "h2": "Foreign relations"
+    },
+    {
+      "p": "The UFSL is a principal architect of intergovernmental organizations and collective security frameworks on Aron. It maintains close ties with Aquita, Rohandile, and Leland, while strategic competition persists with Kifahn and Mancharia. Cross-oceanic economic integration has deepened since the late 20th century, even as regional crises periodically test alliance commitments. "
+    },
+
+    {
+      "h2": "Timeline (selected)"
+    },
+    {
+      "ul": [
+        "1662 DME - Riokiv steam-engine breakthrough accelerates mechanization. ",
+        "1675 DME - Independence of the UFSL from the Oytarian Empire (May 5). ",
+        "1910-1914 DME - First World War; Aquita falls and surrenders (1913-1914). ",
+        "1939-1949 DME - Second World War; UFSL enters after harbor bombing; conflict ends after UFSL's final nuclear strike on Antara (1949).",
+        "1955 DME - Pioneer-1, first artificial satellite, launched by the UFSL. ",
+        "1966 DME - First crewed landing on Nyx (Lucithia 11). ",
+        "1996 DME - Dissolution of the CCR; UFSL remains primary superpower. ",
+        "2021 DME - Querev tunnel construction commences with Rohandile and partners. ",
+        "2027 DME - Council impeachment proceedings for Robert Miller; acquittal."
+      ]
+    }
+  ],
+
+  "see_also": [
+    "home",
+    "history-of-aron",
+    "oytarian-empire",
+    "aquita",
+    "Collected Communist Republic",
+    "enequit-wars"
+  ]
+}

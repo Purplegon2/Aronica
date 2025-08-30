@@ -1,0 +1,10 @@
+{
+  "slug": "home",
+  "title": "Aronica Home",
+  "type": "meta",
+  "updated": "2025-08-29",
+  "body": [
+    {"p": "Welcome. Use the search bar or the left navigation."},
+    {"p": "Try [[slug:nation-ufsl|United Federal States of Lucithia]]."}
+  ]
+}
